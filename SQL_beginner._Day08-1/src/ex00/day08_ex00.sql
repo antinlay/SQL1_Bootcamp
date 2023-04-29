@@ -1,0 +1,29 @@
+-- SESSION 1:
+-- pizzeriadb=# begin;
+-- BEGIN
+-- pizzeriadb=*# update pizzeria set rating = 5 where name = 'Pizza Hut';
+-- UPDATE 1
+-- pizzeriadb=*# select * from pizzeria where name = 'Pizza Hut';
+--  id |   name    | rating 
+-- ----+-----------+--------
+--   1 | Pizza Hut |      5
+-- (1 row)
+-- pizzeriadb=*# COMMIT;
+-- COMMIT
+-- pizzeriadb=#
+--
+-- SESSION 2:
+-- pizzeriadb=# begin;
+-- BEGIN
+-- pizzeriadb=*# select * from pizzeria where name = 'Pizza Hut'
+-- pizzeriadb-*# ;
+--  id |   name    | rating 
+-- ----+-----------+--------
+--   1 | Pizza Hut |    4.6
+-- (1 row)
+-- pizzeriadb=*# select * from pizzeria where name = 'Pizza Hut';
+--  id |   name    | rating 
+-- ----+-----------+--------
+--   1 | Pizza Hut |      5
+-- (1 row)
+-- pizzeriadb=*#

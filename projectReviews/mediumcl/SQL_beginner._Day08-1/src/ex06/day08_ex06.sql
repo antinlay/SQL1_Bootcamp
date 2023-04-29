@@ -1,0 +1,11 @@
+begin;
+SHOW TRANSACTION ISOLATION LEVEL;
+set transaction isolation level repeatable read;
+set transaction isolation level repeatable read;
+select sum(rating) from pizzeria;
+update pizzeria p set rating = 5 where p.name = 'Pizza Hut';
+commit;
+select sum(rating) from pizzeria;
+commit;
+select sum(rating) from pizzeria;
+select sum(rating) from pizzeria;

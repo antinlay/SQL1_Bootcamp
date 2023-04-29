@@ -1,0 +1,10 @@
+begin;
+SHOW TRANSACTION ISOLATION LEVEL;
+set transaction isolation level read committed;
+set transaction isolation level read committed;
+update pizzeria p set rating = 3.6 where p.name = 'Pizza Hut';
+commit;
+select * from pizzeria;
+commit;
+select * from pizzeria;
+select * from pizzeria;
